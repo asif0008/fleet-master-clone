@@ -94,12 +94,12 @@ const rows = [
 ];
 
 const columns = [
-  { field: "date", headerName: "DATE/TIME", width: 150 },
-  { field: "fleetNumber", headerName: "FLEET NUMBER", width: 130 },
-  { field: "plateNumber", headerName: "PLATE NUMBER", width: 150 },
-  { field: "driver", headerName: "DRIVER", width: 120 },
-  { field: "deviceId", headerName: "DEVICE ID", width: 150 },
-  { field: "speed", headerName: "SPEED", width: 90 },
+  { field: "date", headerName: "DATE/TIME", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "fleetNumber", headerName: "FLEET NUMBER", headerAlign: 'center', align: 'center', width: 130 },
+  { field: "plateNumber", headerName: "PLATE NUMBER", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "driver", headerName: "DRIVER", headerAlign: 'center', align: 'center', width: 120 },
+  { field: "deviceId", headerName: "DEVICE ID", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "speed", headerName: "SPEED", headerAlign: 'center', align: 'center', width: 90 },
   { 
     field: "status", 
     headerName: "STATUS", 

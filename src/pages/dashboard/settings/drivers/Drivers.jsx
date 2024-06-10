@@ -1,15 +1,14 @@
 import React from "react";
-import CustomCard from "../../../../components/CustomCard";
+import CustomCard from "./components/CustomCard";
 import { Box } from "@mui/material";
 import AddIcon from "../../../../assets/svgs/settings/AddIcon";
 import DownloadIcon from "../../../../assets/svgs/reports/DownloadIcon";
-import { driver } from "../../../../data";
+import { drivers } from "../../../../data/data";
 
 
 const Drivers = () => {
   return (
     <>
-
       <Box
         sx={{
           background: "#F5F4F4",
@@ -40,8 +39,8 @@ const Drivers = () => {
             rowGap: "4rem",
           }}
         >
-          {driver.map((drivers, index) => (
-            <CustomCard driver={ drivers } />
+          {drivers.map((driver, i) => (
+            <CustomCard key={i} driver={ driver } />
           ))}
         </Box>
       </Box>

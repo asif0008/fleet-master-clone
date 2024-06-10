@@ -5,6 +5,7 @@ import MapMarkers from './MapMarkers';
 import TruckIcon from '../../../../../../assets/svgs/map/TruckIcon.svg';
 
 const TOKEN = import.meta.env.VITE_APP_MAP_TOKEN;
+console.log('token', import.meta.env.VITE_APP_MAP_TOKEN)
 
 const MapComponent = ({ mapRef, newPlace, setNewPlace, viewport, setViewport }) => {
   const [hoveredMarker, setHoveredMarker] = useState(null);
@@ -25,7 +26,6 @@ const MapComponent = ({ mapRef, newPlace, setNewPlace, viewport, setViewport }) 
   };
 
   const TOKEN = import.meta.env.VITE_APP_MAP_TOKEN;
-  console.log('Map Token:', TOKEN);
 
   return (
     <Box style={{ height: '100vh', width: '100%', position: 'relative' }}>

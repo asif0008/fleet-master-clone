@@ -1,27 +1,31 @@
+import React from 'react'
+
 import {
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-  Typography,
-  Avatar,
-  Box,
-} from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+    Card,
+    CardContent,
+    CardActions,
+    Button,
+    Typography,
+    Avatar,
+    Box,
+  } from "@mui/material";
+  import EditIcon from "@mui/icons-material/Edit";
+  import DeleteIcon from "@mui/icons-material/Delete";
+  import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+  import Profile from '../../../../../assets/images/settings/vehicle-pic.png'
 
-import React from "react";
-
-const CustomCard = ({ driver }) => {
+  
+const TruckCard = ({truck}) => {
   return (
     <>
-      <Card
+    <Card
         sx={{
           position: "relative",
           overflow: "visible",
           flexGrow: "1",
           border: "none",
+          boxShadow: 'none',
+          borderRadius: '12px',
           padding: {
             xs: "0px",
             md: "10px",
@@ -38,15 +42,18 @@ const CustomCard = ({ driver }) => {
         >
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            src={Profile}
             sx={{
               width: "80px",
               height: "80px",
               position: "relative",
               overflow: "visible",
+              borderRadius: '50%',
+              objectFit: 'cover'
             }}
           >
-            <Box
+          </Avatar>
+          <Box
               sx={{
                 width: "15px",
                 height: "15px",
@@ -55,9 +62,10 @@ const CustomCard = ({ driver }) => {
                 position: "absolute",
                 border: "2px solid white",
                 bottom: "-7px",
+                left: '50%',
+                transform: 'translate(-50%, 0px)'
               }}
             ></Box>
-          </Avatar>
         </Box>
         <CardContent>
           <Box sx={{ textAlign: "center", marginTop: "25px" }}>
@@ -73,7 +81,7 @@ const CustomCard = ({ driver }) => {
                 fontWeight: "500",
               }}
             >
-              {driver.name}
+              {truck.name}
             </Typography>
           </Box>
           <Box
@@ -96,7 +104,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                Creation Date
+                Fleet Number
               </Typography>
               <Typography
                 variant="body2"
@@ -109,10 +117,14 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                {driver.creationDate}
+                {truck.fleetNumber}
               </Typography>
             </Box>
-            <Box>
+            <Box sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "end",
+              }}>
               <Typography
                 variant="body2"
                 color="textSecondary"
@@ -125,7 +137,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                Driver ID
+                Plate Number
               </Typography>
               <Typography
                 variant="body2"
@@ -138,7 +150,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                {driver.driverID}
+                {truck.plateNumber}
               </Typography>
             </Box>
           </Box>
@@ -162,7 +174,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                License Expiry
+                Status
               </Typography>
               <Typography
                 variant="body2"
@@ -175,7 +187,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                {driver.licenseExpiry}
+                {truck.status}
               </Typography>
             </Box>
             <Box
@@ -197,7 +209,7 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                Assign Truck
+                Driver
               </Typography>
               <Typography
                 variant="body2"
@@ -210,26 +222,82 @@ const CustomCard = ({ driver }) => {
                   fontWeight: "400",
                 }}
               >
-                {driver.assignedTruck}
+                {truck.driver}
               </Typography>
             </Box>
           </Box>
-          <Button
-            variant="outlined"
-            size="small"
-            sx={{
-              color: "black",
-              marginTop: "27px",
-              width: "100%",
-              background: "transparent",
-              "&:hover": {
-                background: "transparent",
-              },
+          <Box
+            style={{
+              marginTop: "13px",
+              display: "flex",
+              justifyContent: "space-between",
             }}
-            startIcon={<LocalPhoneIcon sx={{ color: "#006BCE" }} />}
           >
-            {driver.phone}
-          </Button>
+            <Box>
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                sx={{
+                  fontSize: {
+                    xs: "10px",
+                    md: "12px",
+                  },
+                  color: "#7F7F92",
+                  fontWeight: "400",
+                }}
+              >
+                Last Update
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: {
+                    xs: "14px",
+                    md: "16px",
+                  },
+                  color: "#006BCE",
+                  fontWeight: "400",
+                }}
+              >
+                {truck.lastUpdate}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "end",
+              }}
+            >
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                sx={{
+                  fontSize: {
+                    xs: "10px",
+                    md: "12px",
+                  },
+                  color: "#7F7F92",
+                  fontWeight: "400",
+                }}
+              >
+                Device Id
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: {
+                    xs: "14px",
+                    md: "16px",
+                  },
+                  color: "#006BCE",
+                  fontWeight: "400",
+                }}
+              >
+                {truck.deviceId}
+              </Typography>
+            </Box>
+          </Box>
         </CardContent>
 
         <CardActions>
@@ -273,7 +341,7 @@ const CustomCard = ({ driver }) => {
         </CardActions>
       </Card>
     </>
-  );
-};
+  )
+}
 
-export default CustomCard;
+export default TruckCard
