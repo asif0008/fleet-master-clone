@@ -58,8 +58,7 @@ const Home = () => {
             borderRadius: '12px',
             height: '100%'
           }}>
-           {/* <Map /> */}
-           map
+           <Map />
           </Box>
         </Grid>
       </Grid>

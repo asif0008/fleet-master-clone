@@ -82,12 +82,12 @@ const rows = [
 ];
 
 const columns = [
-  { field: "alertId", headerName: "ALERT ID", width: 180 },
-  { field: "alertType", headerName: "ALERT TYPE", width: 130 },
-  { field: "fleetNumber", headerName: "FLEET NUMBER", width: 150 },
-  { field: "plateNumber", headerName: "PLATE NUMBER", width: 150 },
-  { field: "driverName", headerName: "DRIVER NAME", width: 150 },
-  { field: "date", headerName: "DATE/TIME", width: 160 },
+  { field: "alertId", headerName: "ALERT ID", headerAlign: 'center', align: 'center', width: 180 },
+  { field: "alertType", headerName: "ALERT TYPE", headerAlign: 'center', align: 'center', width: 130 },
+  { field: "fleetNumber", headerName: "FLEET NUMBER", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "plateNumber", headerName: "PLATE NUMBER", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "driverName", headerName: "DRIVER NAME", headerAlign: 'center', align: 'center', width: 150 },
+  { field: "date", headerName: "DATE/TIME", headerAlign: 'center', align: 'center', width: 160 },
   { 
     field: "severity", 
     headerName: "SEVERITY", 

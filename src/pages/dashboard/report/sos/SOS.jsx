@@ -18,11 +18,11 @@ const rows = [
 ];
 
 const columns = [
-  { field: "event", headerName: "EVENT DATE/TIME", width: 230 },
-  { field: "fleetNumber", headerName: "FLEET NUMBER", width: 230 },
-  { field: "plateNumber", headerName: "PLATE NUMBER", width: 230 },
-  { field: "driverName", headerName: "DRIVER NAME", width: 230 },
-  { field: "actions", headerName: "ACTIONS", width: 230 },
+  { field: "event", headerName: "EVENT DATE/TIME", headerAlign: 'center', align: 'center', width: 230 },
+  { field: "fleetNumber", headerName: "FLEET NUMBER", headerAlign: 'center', align: 'center', width: 230 },
+  { field: "plateNumber", headerName: "PLATE NUMBER", headerAlign: 'center', align: 'center', width: 230 },
+  { field: "driverName", headerName: "DRIVER NAME", headerAlign: 'center', align: 'center', width: 230 },
+  { field: "actions", headerName: "ACTIONS", headerAlign: 'center', align: 'center', width: 230 },
 ];
 
 const SOS = () => {

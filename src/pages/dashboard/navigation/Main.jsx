@@ -14,7 +14,8 @@ const Main = () => {
       position: 'relative',
       zIndex: '10',
       marginTop: '-3rem',
-      height: '100%'
+      height: '100%',
+      overflowX: 'clip'
     }}>
       <Outlet />
     </Box>

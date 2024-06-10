@@ -1,27 +1,30 @@
-import React from 'react'
-
 import {
-    Card,
-    CardContent,
-    CardActions,
-    Button,
-    Typography,
-    Avatar,
-    Box,
-  } from "@mui/material";
-  import EditIcon from "@mui/icons-material/Edit";
-  import DeleteIcon from "@mui/icons-material/Delete";
-  import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-  
-const TruckCard = ({truck}) => {
+  Card,
+  CardContent,
+  CardActions,
+  Button,
+  Typography,
+  Avatar,
+  Box,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import ProfilePic from '../../../../../assets/images/settings/driver-profile.png'
+
+import React from "react";
+
+const CustomCard = ({ driver }) => {
   return (
     <>
-    <Card
+      <Card
         sx={{
           position: "relative",
           overflow: "visible",
           flexGrow: "1",
           border: "none",
+          boxShadow: 'none',
+          borderRadius: '12px',
           padding: {
             xs: "0px",
             md: "10px",
@@ -38,15 +41,18 @@ const TruckCard = ({truck}) => {
         >
           <Avatar
             alt="Remy Sharp"
-            src="/static/images/avatar/1.jpg"
+            src={ProfilePic}
             sx={{
               width: "80px",
               height: "80px",
               position: "relative",
               overflow: "visible",
+              borderRadius: '50%',
+              objectFit: 'cover'
             }}
           >
-            <Box
+          </Avatar>
+          <Box
               sx={{
                 width: "15px",
                 height: "15px",
@@ -55,9 +61,10 @@ const TruckCard = ({truck}) => {
                 position: "absolute",
                 border: "2px solid white",
                 bottom: "-7px",
+                left: '50%',
+                transform: 'translate(-50%, 0px)'
               }}
             ></Box>
-          </Avatar>
         </Box>
         <CardContent>
           <Box sx={{ textAlign: "center", marginTop: "25px" }}>
@@ -73,7 +80,7 @@ const TruckCard = ({truck}) => {
                 fontWeight: "500",
               }}
             >
-              {truck.name}
+              {driver.name}
             </Typography>
           </Box>
           <Box
@@ -96,7 +103,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                Fleet Number
+                Creation Date
               </Typography>
               <Typography
                 variant="body2"
@@ -109,14 +116,10 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                {truck.fleetNumber}
+                {driver.creationDate}
               </Typography>
             </Box>
-            <Box sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
-              }}>
+            <Box>
               <Typography
                 variant="body2"
                 color="textSecondary"
@@ -129,7 +132,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                Plate Number
+                Driver ID
               </Typography>
               <Typography
                 variant="body2"
@@ -142,7 +145,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                {truck.plateNumber}
+                {driver.driverID}
               </Typography>
             </Box>
           </Box>
@@ -166,7 +169,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                Status
+                License Expiry
               </Typography>
               <Typography
                 variant="body2"
@@ -179,7 +182,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                {truck.status}
+                {driver.licenseExpiry}
               </Typography>
             </Box>
             <Box
@@ -201,7 +204,7 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                Driver
+                Assign Truck
               </Typography>
               <Typography
                 variant="body2"
@@ -214,82 +217,26 @@ const TruckCard = ({truck}) => {
                   fontWeight: "400",
                 }}
               >
-                {truck.driver}
+                {driver.assignedTruck}
               </Typography>
             </Box>
           </Box>
-          <Box
-            style={{
-              marginTop: "13px",
-              display: "flex",
-              justifyContent: "space-between",
+          <Button
+            variant="outlined"
+            size="small"
+            sx={{
+              color: "black",
+              marginTop: "27px",
+              width: "100%",
+              background: "transparent",
+              "&:hover": {
+                background: "transparent",
+              },
             }}
+            startIcon={<LocalPhoneIcon sx={{ color: "#006BCE" }} />}
           >
-            <Box>
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                sx={{
-                  fontSize: {
-                    xs: "10px",
-                    md: "12px",
-                  },
-                  color: "#7F7F92",
-                  fontWeight: "400",
-                }}
-              >
-                Last Update
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: {
-                    xs: "14px",
-                    md: "16px",
-                  },
-                  color: "#006BCE",
-                  fontWeight: "400",
-                }}
-              >
-                {truck.lastUpdate}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
-              }}
-            >
-              <Typography
-                variant="body2"
-                color="textSecondary"
-                sx={{
-                  fontSize: {
-                    xs: "10px",
-                    md: "12px",
-                  },
-                  color: "#7F7F92",
-                  fontWeight: "400",
-                }}
-              >
-                Device Id
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  fontSize: {
-                    xs: "14px",
-                    md: "16px",
-                  },
-                  color: "#006BCE",
-                  fontWeight: "400",
-                }}
-              >
-                {truck.deviceId}
-              </Typography>
-            </Box>
-          </Box>
+            {driver.phone}
+          </Button>
         </CardContent>
 
         <CardActions>
@@ -333,7 +280,7 @@ const TruckCard = ({truck}) => {
         </CardActions>
       </Card>
     </>
-  )
-}
+  );
+};
 
-export default TruckCard
+export default CustomCard;
