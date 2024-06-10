@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, logoutUser } from "../../../features/auth/authSlice";
+import { loginUser } from "../../../features/auth/authSlice";
 import { Box, TextField, Button, Typography, IconButton } from "@mui/material";
 import EmailIcon from "../../../assets/svgs/login/EmailIcon";
 import EyeIconOpen from "../../../assets/svgs/login/EyeIconOpen";
