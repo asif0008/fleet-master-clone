@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box} from '@mui/material';
-import Loader from './../assets/svgs/Loader';
+import Loader from '../../assets/svgs/Loader';
 
 const GlobalLoader = () => {
 

@@ -12,7 +12,7 @@ import RealTimeMap from "./pages/dashboard/RealTimeMap/RealTimeMap";
 import Otp from "./pages/auth/otp/Otp";
 import ForgotPassword from "./pages/auth/forgot-password/ForgotPassword";
 import ResetPassword from "./pages/auth/reset-password/ResetPassword";
-import GlobalLoader from "./components/Loader.jsx";
+import GlobalLoader from "./components/loader/Loader";
 
 const Login = lazy(() => import("./pages/auth/login"));
 const Home = lazy(() => import("./pages/dashboard/Home/Home"));

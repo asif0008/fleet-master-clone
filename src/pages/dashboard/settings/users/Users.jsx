@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { users } from '../../../../data/data'
 import { Box } from "@mui/material";
 import AddIcon from "../../../../assets/svgs/settings/AddIcon";
 import DownloadIcon from "../../../../assets/svgs/reports/DownloadIcon";
 import UserCard from './components/UserCard';
+import Modal from '../../../../components/loader/modal/Modal';
+import EditUser from './components/EditUser';
 
 const Users = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  }
+
   return (
     <>
       <Box
@@ -25,7 +36,12 @@ const Users = () => {
             justifyContent: "flex-end",
           }}
         >
-          <AddIcon />
+          <Box 
+          onClick={handleOpenModal}
+          sx={{ cursor: 'pointer' }}
+          >
+            <AddIcon />
+          </Box>
         </Box>
         <Box
           style={{
@@ -41,6 +57,11 @@ const Users = () => {
           ))}
         </Box>
       </Box>
+      {isModalOpen && (
+        <Modal onClose={handleCloseModal}>
+          <EditUser onClose={handleCloseModal} />
+        </Modal>
+      )}
     </>
   )
 }
