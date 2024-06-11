@@ -334,5 +334,33 @@ export const drivers = [
     },
   ];
   
+  export const roles = [
+    {
+      role: 'Admin'
+    },
+    {
+      role: 'Editor'
+    },
+    {
+      role: 'User'
+    },
+    {
+      role: 'Viewer'
+    },
+  ]
+  export const regions = [
+    {
+      region: 'Africa'
+    },
+    {
+      region: 'Asia'
+    },
+    {
+      region: 'Europe'
+    },
+    {
+      region: 'Central America'
+    },
+  ]
   
   
