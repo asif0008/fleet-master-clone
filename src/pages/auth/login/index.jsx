@@ -6,11 +6,8 @@ import Icon from '../../../assets/images/login/icon.png'
 import Form from './Form'
 import Loader from '../../../components/Loader'
 const Login = () => {
-  const { isLoading } = useSelector((state) => state.auth)
-
   return (
     <>
-      {isLoading && <Loader />}
       <Main container>
         <Grid
           item

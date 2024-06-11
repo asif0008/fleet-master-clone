@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const AddIcon = () => {
   return (
@@ -14,20 +14,20 @@ const AddIcon = () => {
         <path
           d="M16 10.1667V21.8334"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M10.167 16H21.8337"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </>
-  );
-};
+  )
+}
 
-export default AddIcon;
+export default AddIcon
