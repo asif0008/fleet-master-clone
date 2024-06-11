@@ -1,92 +1,91 @@
 import {
-    Card,
-    CardContent,
-    CardActions,
-    Button,
-    Typography,
-    Avatar,
-    Box,
-  } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+  Card,
+  CardContent,
+  CardActions,
+  Button,
+  Typography,
+  Avatar,
+  Box,
+} from '@mui/material'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone'
 import ProfilePic from '../../../../../assets/images/settings/driver-profile.png'
 import React from 'react'
 
 const UserCard = ({ user }) => {
   return (
     <>
-        <Card
+      <Card
         sx={{
-          position: "relative",
-          overflow: "visible",
-          flexGrow: "1",
-          border: "none",
+          position: 'relative',
+          overflow: 'visible',
+          flexGrow: '1',
+          border: 'none',
           boxShadow: 'none',
           borderRadius: '12px',
           padding: {
-            xs: "0px",
-            md: "10px",
+            xs: '0px',
+            md: '10px',
           },
         }}
       >
         <Box
           sx={{
-            position: "absolute",
-            top: "-15%",
-            left: "50%",
-            transform: "translate(-50%, 0)",
+            position: 'absolute',
+            top: '-15%',
+            left: '50%',
+            transform: 'translate(-50%, 0)',
           }}
         >
           <Avatar
             alt="Remy Sharp"
             src={ProfilePic}
             sx={{
-              width: "80px",
-              height: "80px",
-              position: "relative",
-              overflow: "visible",
+              width: '80px',
+              height: '80px',
+              position: 'relative',
+              overflow: 'visible',
               borderRadius: '50%',
-              objectFit: 'cover'
+              objectFit: 'cover',
             }}
-          >
-          </Avatar>
+          ></Avatar>
           <Box
-              sx={{
-                width: "15px",
-                height: "15px",
-                backgroundColor: "#00A389",
-                borderRadius: "100%",
-                position: "absolute",
-                border: "2px solid white",
-                bottom: "-7px",
-                left: '50%',
-                transform: 'translate(-50%, 0px)'
-              }}
-            ></Box>
+            sx={{
+              width: '15px',
+              height: '15px',
+              backgroundColor: '#00A389',
+              borderRadius: '100%',
+              position: 'absolute',
+              border: '2px solid white',
+              bottom: '-7px',
+              left: '50%',
+              transform: 'translate(-50%, 0px)',
+            }}
+          ></Box>
         </Box>
         <CardContent>
-          <Box sx={{ textAlign: "center", marginTop: "25px" }}>
+          <Box sx={{ textAlign: 'center', marginTop: '25px' }}>
             <Typography
               variant="h6"
               component="Box"
               sx={{
                 fontSize: {
-                  xs: "14px",
-                  md: "18px",
+                  xs: '14px',
+                  md: '18px',
                 },
-                color: "#464255",
-                fontWeight: "500",
+                color: '#464255',
+                fontWeight: '500',
               }}
             >
-              {user.name}
+              {user?.name}
             </Typography>
           </Box>
           <Box
             style={{
-              marginTop: "8px",
-              display: "flex",
-              justifyContent: "space-between",
+              marginTop: '8px',
+              display: 'flex',
+              justifyContent: 'space-between',
             }}
           >
             <Box>
@@ -95,11 +94,11 @@ const UserCard = ({ user }) => {
                 color="textSecondary"
                 sx={{
                   fontSize: {
-                    xs: "10px",
-                    md: "12px",
+                    xs: '10px',
+                    md: '12px',
                   },
-                  color: "#7F7F92",
-                  fontWeight: "400",
+                  color: '#7F7F92',
+                  fontWeight: '400',
                 }}
               >
                 Creation Date
@@ -108,11 +107,11 @@ const UserCard = ({ user }) => {
                 variant="body2"
                 sx={{
                   fontSize: {
-                    xs: "14px",
-                    md: "16px",
+                    xs: '14px',
+                    md: '16px',
                   },
-                  color: "#006BCE",
-                  fontWeight: "400",
+                  color: '#006BCE',
+                  fontWeight: '400',
                 }}
               >
                 {user.creationDate}
@@ -124,11 +123,11 @@ const UserCard = ({ user }) => {
                 color="textSecondary"
                 sx={{
                   fontSize: {
-                    xs: "10px",
-                    md: "12px",
+                    xs: '10px',
+                    md: '12px',
                   },
-                  color: "#7F7F92",
-                  fontWeight: "400",
+                  color: '#7F7F92',
+                  fontWeight: '400',
                 }}
               >
                 Driver ID
@@ -137,11 +136,11 @@ const UserCard = ({ user }) => {
                 variant="body2"
                 sx={{
                   fontSize: {
-                    xs: "14px",
-                    md: "16px",
+                    xs: '14px',
+                    md: '16px',
                   },
-                  color: "#006BCE",
-                  fontWeight: "400",
+                  color: '#006BCE',
+                  fontWeight: '400',
                 }}
               >
                 {user.driverID}
@@ -150,9 +149,9 @@ const UserCard = ({ user }) => {
           </Box>
           <Box
             style={{
-              marginTop: "13px",
-              display: "flex",
-              justifyContent: "space-between",
+              marginTop: '13px',
+              display: 'flex',
+              justifyContent: 'space-between',
             }}
           >
             <Box>
@@ -161,11 +160,11 @@ const UserCard = ({ user }) => {
                 color="textSecondary"
                 sx={{
                   fontSize: {
-                    xs: "10px",
-                    md: "12px",
+                    xs: '10px',
+                    md: '12px',
                   },
-                  color: "#7F7F92",
-                  fontWeight: "400",
+                  color: '#7F7F92',
+                  fontWeight: '400',
                 }}
               >
                 License Expiry
@@ -174,11 +173,11 @@ const UserCard = ({ user }) => {
                 variant="body2"
                 sx={{
                   fontSize: {
-                    xs: "14px",
-                    md: "16px",
+                    xs: '14px',
+                    md: '16px',
                   },
-                  color: "#006BCE",
-                  fontWeight: "400",
+                  color: '#006BCE',
+                  fontWeight: '400',
                 }}
               >
                 {user.licenseExpiry}
@@ -186,9 +185,9 @@ const UserCard = ({ user }) => {
             </Box>
             <Box
               sx={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "end",
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'end',
               }}
             >
               <Typography
@@ -196,11 +195,11 @@ const UserCard = ({ user }) => {
                 color="textSecondary"
                 sx={{
                   fontSize: {
-                    xs: "10px",
-                    md: "12px",
+                    xs: '10px',
+                    md: '12px',
                   },
-                  color: "#7F7F92",
-                  fontWeight: "400",
+                  color: '#7F7F92',
+                  fontWeight: '400',
                 }}
               >
                 Assign Truck
@@ -209,11 +208,11 @@ const UserCard = ({ user }) => {
                 variant="body2"
                 sx={{
                   fontSize: {
-                    xs: "14px",
-                    md: "16px",
+                    xs: '14px',
+                    md: '16px',
                   },
-                  color: "#006BCE",
-                  fontWeight: "400",
+                  color: '#006BCE',
+                  fontWeight: '400',
                 }}
               >
                 {user.assignedTruck}
@@ -224,15 +223,15 @@ const UserCard = ({ user }) => {
             variant="outlined"
             size="small"
             sx={{
-              color: "black",
-              marginTop: "27px",
-              width: "100%",
-              background: "transparent",
-              "&:hover": {
-                background: "transparent",
+              color: 'black',
+              marginTop: '27px',
+              width: '100%',
+              background: 'transparent',
+              '&:hover': {
+                background: 'transparent',
               },
             }}
-            startIcon={<LocalPhoneIcon sx={{ color: "#006BCE" }} />}
+            startIcon={<LocalPhoneIcon sx={{ color: '#006BCE' }} />}
           >
             {user.phone}
           </Button>
@@ -241,23 +240,23 @@ const UserCard = ({ user }) => {
         <CardActions>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              width: "100%",
-              gap: "10px",
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              gap: '10px',
             }}
           >
             <Button
               size="small"
               sx={{
-                background: "#006BCE33",
-                minWidth: "127px",
-                "&:hover": {
-                  background: "transparent",
+                background: '#006BCE33',
+                minWidth: '127px',
+                '&:hover': {
+                  background: 'transparent',
                 },
               }}
-              startIcon={<EditIcon sx={{ color: "#006BCE" }} />}
+              startIcon={<EditIcon sx={{ color: '#006BCE' }} />}
             >
               Edit
             </Button>
@@ -265,13 +264,13 @@ const UserCard = ({ user }) => {
               size="small"
               color="error"
               sx={{
-                background: "#FFCCC6",
-                minWidth: "127px",
-                "&:hover": {
-                  background: "transparent",
+                background: '#FFCCC6',
+                minWidth: '127px',
+                '&:hover': {
+                  background: 'transparent',
                 },
               }}
-              startIcon={<DeleteIcon sx={{ color: "#FF1900" }} />}
+              startIcon={<DeleteIcon sx={{ color: '#FF1900' }} />}
             >
               Delete
             </Button>
