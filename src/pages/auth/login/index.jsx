@@ -1,27 +1,27 @@
-import React from "react";
-import { Box, styled, Grid, Typography } from "@mui/material";
-import {  useSelector} from 'react-redux';
-import LoginBg from "../../../assets/images/login/loginbg.png";
-import Icon from "../../../assets/images/login/icon.png";
-import Form from "./Form";
+import React from 'react'
+import { Box, styled, Grid, Typography } from '@mui/material'
+import { useSelector } from 'react-redux'
+import LoginBg from '../../../assets/images/login/loginbg.png'
+import Icon from '../../../assets/images/login/icon.png'
+import Form from './Form'
 import Loader from '../../../components/Loader'
 const Login = () => {
-  const { isLoading  } = useSelector(state => state.auth);
+  const { isLoading } = useSelector((state) => state.auth)
 
   return (
     <>
-     {isLoading && <Loader /> }
+      {isLoading && <Loader />}
       <Main container>
         <Grid
           item
           md={8}
           xs={12}
           sx={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            height: '100vh',
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
           }}
         >
           <Form />
@@ -31,50 +31,57 @@ const Login = () => {
           md={4}
           xs={0}
           sx={{
-            height: "100vh",
-            width: "100%",
-            display:{xs:'none', md:'block'},
+            height: '100vh',
+            width: '100%',
+            display: { xs: 'none', md: 'block' },
             backgroundImage: `url(${LoginBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            display: {
-              xs: 'none',
-              md: 'block'
-            }
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <Box
             sx={{
-              height: "100%",
-              width: "100%",
-              display:'flex',
-              flexDirection:'row',
-            justifyContent:'center',
+              height: '100%',
+              width: '100%',
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
             }}
           >
-            <Box  sx={{
-              height: "60%",
-              width: "100%",
-              display:'flex',
-              flexDirection:'column',
-            justifyContent:'center',
-            alignItems:'center'
-            }}>
-            <img src={Icon} alt="icon" width="200" height="150" />
-            <Typography sx={{color:'white', textAlign:'center', fontSize:18, mt:2}}>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.
-            </Typography>
+            <Box
+              sx={{
+                height: '60%',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <img src={Icon} alt="icon" width="200" height="150" />
+              <Typography
+                sx={{
+                  color: 'white',
+                  textAlign: 'center',
+                  fontSize: 18,
+                  mt: 2,
+                }}
+              >
+                It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout.
+                The point of using Lorem Ipsum.
+              </Typography>
             </Box>
           </Box>
         </Grid>
       </Main>
     </>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
 const Main = styled(Grid)({
-  height: "100vh",
-  display: "flex",
-});
+  height: '100vh',
+  display: 'flex',
+})
