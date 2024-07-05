@@ -1,85 +1,47 @@
+import ProfilePic from '../assets/images/settings/driver-profile.png'
+
 export const drivers = [
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hello",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-  ];
+  {
+    name: "Hafidh Suleymani",
+    id: 123,
+    creationDate: "22-06-2024",
+    driverID: 36473,
+    licenseExpiry: "22-06-2029",
+    assignedTruck: "BMW",
+    phone: "+12 345 6789 0",
+    profile: ProfilePic,
+  },
+  {
+    name: "Hafidh Suleymani",
+    id: 124,
+    creationDate: "22-06-2024",
+    driverID: 36473,
+    licenseExpiry: "22-06-2029",
+    assignedTruck: "BMW",
+    phone: "+12 345 6789 0",
+    profile: ProfilePic,
+  },
+  {
+    name: "Hafidh Suleymani",
+    id: 1233,
+    creationDate: "22-06-2024",
+    driverID: 36473,
+    licenseExpiry: "22-06-2029",
+    assignedTruck: "BMW",
+    phone: "+12 345 6789 0",
+    profile: ProfilePic,
+  },
+  {
+    name: "Hafidh Suleymani",
+    id: 1236,
+    creationDate: "22-06-2024",
+    driverID: 36473,
+    licenseExpiry: "22-06-2029",
+    assignedTruck: "BMW",
+    phone: "+12 345 6789 0",
+    profile: ProfilePic,
+  },
+];
 
   export const trucks = [
     {
@@ -185,152 +147,116 @@ export const drivers = [
 
   export const devices = [
     {
-      id: '23923002',
-      dateTimeCreation: '05/24/2024 - 12:06',
-      deviceId: '23234233',
+      _id: '23923002',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
     {
-      id: '23923003',
-      dateTimeCreation: '05/24/2024 - 12:07',
-      deviceId: '23234234',
+      _id: '232342234',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
     {
-      id: '23923004',
-      dateTimeCreation: '05/24/2024 - 12:08',
-      deviceId: '23234235',
+      _id: '234234232',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
     {
-      id: '23923005',
-      dateTimeCreation: '05/24/2024 - 12:09',
-      deviceId: '23234236',
+      _id: '2342342',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
     {
-      id: '23923006',
-      dateTimeCreation: '05/24/2024 - 12:10',
-      deviceId: '23234237',
+      _id: '23423423',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
     {
-      id: '23923007',
-      dateTimeCreation: '05/24/2024 - 12:11',
-      deviceId: '23234238',
+      _id: '23423234',
+      createdAt: '05/24/2024 - 12:06',
+      name: 'tracker one',
+      type: 'gps',
+      uniqueId: '23423423',
+      ipAddress: '2342342423',
+      assignedTo: {
+        _id: '123123',
+        truckName: 'truck three'
+      }
     },
-    {
-      id: '23923008',
-      dateTimeCreation: '05/24/2024 - 12:12',
-      deviceId: '23234239',
-    },
-    {
-      id: '23923009',
-      dateTimeCreation: '05/24/2024 - 12:13',
-      deviceId: '23234240',
-    },
-    {
-      id: '23923010',
-      dateTimeCreation: '05/24/2024 - 12:14',
-      deviceId: '23234241',
-    },
-    {
-      id: '23923011',
-      dateTimeCreation: '05/24/2024 - 12:15',
-      deviceId: '23234242',
-    },
-    {
-      id: '23923012',
-      dateTimeCreation: '05/24/2024 - 12:16',
-      deviceId: '23234243',
-    },
-    {
-      id: '23923013',
-      dateTimeCreation: '05/24/2024 - 12:17',
-      deviceId: '23234244',
-    },
-    {
-      id: '23923014',
-      dateTimeCreation: '05/24/2024 - 12:18',
-      deviceId: '23234245',
-    },
+
   ];
 
   export const users = [
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
+    {    
+      firstName: "Hafidh",
+      lastName: 'Suleymani',
+      id: 123,
+      email: "test@gmail.com",
+      role:  'Admin',
+      phone: '+12 345 6789 0',
+      profile: ProfilePic,
     },
     {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
+      firstName: "Hafidh",
+      lastName: 'Suleymani',
+      id: 234,
+      email: "test@gmail.com",
+      role:  'Admin',
+      phone: '+12 345 6789 0',
+      profile: ProfilePic,
     },
     {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
+      firstName: "Hafidh",
+      lastName: 'Suleymani',
+      id: 546,
+      email: "test@gmail.com",
+      role:  'Admin',
+      phone: '+12 345 6789 0',
+      profile: ProfilePic,
     },
     {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hello",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
-    },
-    {
-      name: "Hafidh Suleymani",
-      creationDate: "22-06-2024",
-      driverID: 36473,
-      licenseExpiry: "22-06-2029",
-      assignedTruck: "BMW",
-      phone: "+12 345 6789 0",
+      firstName: "Hafidh",
+      lastName: 'Suleymani',
+      id: 678,
+      email: "test@gmail.com",
+      role:  'Admin',
+      phone: '+12 345 6789 0',
+      profile: ProfilePic,
     },
   ];
   
@@ -362,5 +288,78 @@ export const drivers = [
       region: 'Central America'
     },
   ]
+
+  export const planCards = [
+    {
+      title: 'Basic Plan',
+      price: '$9.99',
+      featuresList: [
+        'Access to basic content library',
+        'Standard video quality',
+        'Single device streaming',
+        'Community support',
+        'Advance Security'
+      ],
+      description: 'Perfect for individuals looking to explore our content without committing to a higher tier. Enjoy standard quality streaming and a variety of basic features.',
+      bg: 'linear-gradient(180deg, #3AA357 0%, #257300 100%)',
+      btnBg: 'linear-gradient(180deg, #00FF46 0%, #0D742A 165.71%)'
+    },
+    {
+      title: 'Standard Plan',
+      price: '$19.99',
+      featuresList: [
+        'Access to basic content library',
+        'Standard video quality',
+        'Single device streaming',
+        'Community support',
+        'Advance Security'
+      ],
+      description: 'Perfect for individuals looking to explore our content without committing to a higher tier. Enjoy standard quality streaming and a variety of basic features.',
+      bg: 'linear-gradient(180deg, #40C8A1 0%, #195F9D 100%)',
+      btnBg: 'linear-gradient(180deg, #3DC1A1 0%, #1A639D 100%)'
+    },
+    {
+      title: 'Premium Plan',
+      price: '$29.99',
+      featuresList: [
+        'Access to basic content library',
+        'Standard video quality',
+        'Single device streaming',
+        'Community support',
+        'Advance Security'
+      ],
+      description: 'Perfect for individuals looking to explore our content without committing to a higher tier. Enjoy standard quality streaming and a variety of basic features.',
+      bg: 'linear-gradient(180deg, #FFB827 0%, #EE4967 100%)',
+      btnBg: 'linear-gradient(180deg, #FFC24A 0%, #EF4C66 161.43%)'
+    },
+  ]
   
+  export const deviceData = [
+    {
+      _id: '23423',
+      name: 'device 1',
+      type: 'gps',
+    },
+    {
+      _id: '45644',
+      name: 'device 2',
+      type: 'video',
+    },
+    {
+      _id: '64534',
+      name: 'device 3',
+      type: 'gps',
+    },
+    {
+      _id: '25324',
+      name: 'device 4',
+      type: 'video',
+    },
+    {
+      _id: '3453',
+      name: 'device 5',
+      type: 'gps',
+    },
+  ]
+
   

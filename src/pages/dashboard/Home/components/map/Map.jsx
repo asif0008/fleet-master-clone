@@ -1,127 +1,126 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Box from '@mui/material/Box'
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
-import MapComponent from './Components/MapComponent '
+import React, { useEffect, useState } from "react";
+import L from "leaflet";
+import TruckIcon from "../../../../../assets/images/truck.png";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  FeatureGroup,
+} from "react-leaflet";
+import { EditControl } from "react-leaflet-draw";
+import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTrucksAction } from "../../../../../redux/actions/truck.actions";
+import TruckModal from "./TruckModal"; // Adjust the import path as needed
+
+const truckIcon = new L.Icon({
+  iconUrl: TruckIcon,
+  iconSize: [45, 45],
+});
 
 const Map = () => {
-  const blueShade = '#0080ff'
-  let initial = {
-    latitude: 29.2985,
-    longitude: 42.551,
-    zoom: 6,
-    pitch: 0,
-    antialias: true,
-  }
-  const [layerColor, setLayerColor] = useState(blueShade)
-  const [count, setCount] = useState(100)
-  const [newPlace, setNewPlace] = useState(null)
-  const [polygonCord, setPolygonCord] = useState([])
-  let area = 250
-  const [viewport, setViewport] = useState(initial)
+  const [truckPosition, setTruckPosition] = useState(null);
+  const [drawnLayer, setDrawnLayer] = useState(null);
+  const [hasCrossedBoundary, setHasCrossedBoundary] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [truckName, setTruckName] = useState("");
+  const dispatch = useDispatch();
 
-  const mapRef = useRef()
-
-  const theme = useTheme()
-  const lgAbove = useMediaQuery(theme.breakpoints.up('lg'))
-
-  function getLayerCord(bearing, initial_position) {
-    const bearing_rad = (bearing * Math.PI) / 180
-
-    const distance = 5
-    const EARTH_RADIUS = 6378.137
-    const init_lat = (initial_position.latitude * Math.PI) / 180
-    const init_lon = (initial_position.longitude * Math.PI) / 180
-
-    const final_lat =
-      (180 / Math.PI) *
-      Math.asin(
-        Math.sin(init_lat) * Math.cos(distance / EARTH_RADIUS) +
-          Math.cos(init_lat) *
-            Math.sin(distance / EARTH_RADIUS) *
-            Math.cos(bearing_rad),
-      )
-
-    const final_lon =
-      (180 / Math.PI) *
-      (init_lon +
-        Math.atan2(
-          Math.sin(bearing_rad) *
-            Math.sin(distance / EARTH_RADIUS) *
-            Math.cos(init_lat),
-          Math.cos(distance / EARTH_RADIUS) -
-            Math.sin(init_lat) * Math.sin(final_lat),
-        ))
-
-    let finalCord = []
-    finalCord = [...finalCord, final_lon, final_lat]
-    return finalCord
-  }
-
-  function getAllCordinates() {
-    const initial_position = {
-      latitude: newPlace?.lat,
-      longitude: newPlace?.lng,
-    }
-
-    let oneC = getLayerCord(45, initial_position)
-    let twoC = getLayerCord(135, initial_position)
-    let threeC = getLayerCord(225, initial_position)
-    let fourC = getLayerCord(315, initial_position)
-    setPolygonCord([oneC, twoC, threeC, fourC])
-  }
-
+  const { devicesData } = useSelector((state) => state.device);
+  const { trucks } = useSelector((state) => state.truck);
+  // RUN THIS WHEN USER DRAW A LINE
+  // -------------------------------
   useEffect(() => {
-    if (newPlace) {
-      getAllCordinates(area)
+    if (drawnLayer) {
+      dispatch(getAllTrucksAction());
+      setShowModal(true); 
     }
-  }, [newPlace])
+  }, [drawnLayer, dispatch]);
+  // CHANGE THE POSITION OF SENSOR WHEN GET DATA FROM SOCKET
+  // -------------------------------------------------------
+  useEffect(() => {
+    if (devicesData?.payload) {
+      const latitude = devicesData?.payload?.gps?.latitude;
+      const longitude = devicesData?.payload?.gps?.longitude;
+      setTruckPosition([latitude, longitude]);
+    }
+  }, [devicesData]);
+  // WHEN WE DRAW POLIGON HE CAN GETTHE VALUE OF LINE
+  // -------------------------------------------------
+  const _created = (e) => {
+    const type = e.layerType;
+    const layer = e.layer;
 
-  function clearAll() {
-    setNewPlace(null)
-    setPolygonCord([])
-    setViewport(initial)
-    setLayerColor(blueShade)
-  }
+    setDrawnLayer(layer);
+    setHasCrossedBoundary(false);
 
-  console.log('polygonCord', polygonCord)
+    if (type === "polygon" || type === "rectangle") {
+      const bounds = layer.getBounds();
+      const center = bounds.getCenter();
+      setTruckPosition([center.lat, center.lng]);
+    } else if (type === "circle") {
+      const center = layer.getLatLng();
+      setTruckPosition([center.lat, center.lng]);
+    } else {
+      setTruckPosition(null);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSelectTruck = (truck) => {
+    console.log("Selected truck:", truck);
+    setTruckName(truck.truckName);
+    setShowModal(false);
+    // Add your logic to handle the selected truck
+  };
+
   return (
-    <>
-      <Box
-        sx={{
-          display: 'flex',
-          borderRadius: 1,
-          overflow: 'hidden',
-          position: 'relative',
-          width: '100%',
-          height: '100%',
-        }}
+    <React.Fragment>
+      <MapContainer
+        center={[25.276987, 55.296249]}
+        zoom={13}
+        style={{ height: "100%", width: "100%", zIndex: 0 }}
       >
-        <Box
-          sx={{
-            width: '100%',
-            height: '100%',
-            overflow: 'hidden',
-            position: 'relative',
-            '& .ps__rail-y': { zIndex: 5 },
-          }}
-        >
-          <Box sx={{ width: '100%', height: '100vh' }}>
-            <MapComponent
-              mapRef={mapRef}
-              count={count}
-              layerColor={layerColor}
-              polygonCord={polygonCord}
-              setNewPlace={setNewPlace}
-              newPlace={newPlace}
-              viewport={viewport}
-              setViewport={setViewport}
-            />
-          </Box>
-        </Box>
-      </Box>
-    </>
-  )
-}
+        <FeatureGroup>
+          <EditControl
+            position="topright"
+            onCreated={_created}
+            draw={{
+              polygon: true,
+              rectangle: false,
+              circle: true,
+              polyline: false,
+              marker: false,
+              circlemarker: false,
+            }}
+          />
+        </FeatureGroup>
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {truckPosition && (
+          <Marker position={truckPosition} icon={truckIcon}>
+            <Popup>
+              {truckName} is here:{" "}
+              <pre>{JSON.stringify(truckPosition, null, 2)}</pre>
+            </Popup>
+          </Marker>
+        )}
+      </MapContainer>
+      <TruckModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        trucks={trucks || []}
+        handleSelect={handleSelectTruck}
+      />
+    </React.Fragment>
+  );
+};
 
-export default Map
+export default Map;
