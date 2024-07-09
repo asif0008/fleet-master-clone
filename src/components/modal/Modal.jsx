@@ -15,6 +15,9 @@ const Modal = ({ children, onClose }) => {
                     sm: '600px',
                     lg: '900px',
                     xl: '1000px'
+                },
+                '@media (max-height:1000px)': {
+                    height: '100%'
                 }
             }}>
                 {children}
@@ -34,7 +37,8 @@ const ModalOuter = styled('div')({
     justifyContent: 'center',
     alignItems: 'center',
     overflowY: 'scroll',
-    padding: '30px 16px'
+    padding: '30px 16px',
+    zIndex: 1,
 })
 
 const ModalInner = styled('div')({
