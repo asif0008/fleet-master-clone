@@ -27,7 +27,3 @@ a {
     margin: 0 !important;
     width: unset !important;
 }
-
-.leaflet-right {
-    display: none !important;
-}
